@@ -1,0 +1,26 @@
+{
+  "name": "evaluation-app",
+  "version": "0.0.1",
+  "description": "Assignment 3",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arnarg/evaluation-app.git"
+  },
+  "keywords": [
+    "evaluation"
+  ],
+  "author": [
+    "Arnar Gauti Ingason", 
+    "Atli Guðlaugsson",
+    "Þórdís Jóna Jónsdóttir"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnarg/evaluation-app/issues"
+  },
+  "homepage": "https://github.com/arnarg/evaluation-app"
+}
