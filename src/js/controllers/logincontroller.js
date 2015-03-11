@@ -16,8 +16,5 @@ function ($scope, $rootScope, $state, LoginResource){
 			});
 		}
 	};
-
-	$scope.evals = function(){
-		$state.go("evaluations");
-	};
+	
 }]);

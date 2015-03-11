@@ -10,3 +10,19 @@ angular.module("evalApp").factory("LoginResource",
 		}
 	};
 }]);
+
+angular.module("evalApp").factory("EvaluationsResource",
+["$http", "SERVER_URL", function($http, SERVER_URL){
+	return {
+		
+		}
+	};
+}]);
+
+angular.module("evalApp").factory("TemplatesResource",
+["$http", "SERVER_URL", function($http, SERVER_URL){
+	return {
+		
+		}
+	};
+}]);
