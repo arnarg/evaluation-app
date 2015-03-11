@@ -1,0 +1,17 @@
+# bower components
+vendor/
+
+# npm components
+node_modules/
+
+# vim swap files
+*.swp
+
+# Apple .DS_Store
+.DS_Store
+
+# concatinated js
+src/dest/
+
+# minified js
+public/js/
