@@ -1,0 +1,13 @@
+{
+  "name": "evaluation-app",
+  "version": "1.0.0",
+  "authors": [
+    "Arnar Gauti Ingason",
+    "Atli Guðlaugsson",
+    "Þórdís Jóna Jónsdóttir"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "~1.3.14"
+  }
+}

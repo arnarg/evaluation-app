@@ -1,6 +1,6 @@
 {
   "name": "evaluation-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Assignment 3",
   "main": "app.js",
   "scripts": {
@@ -13,14 +13,19 @@
   "keywords": [
     "evaluation"
   ],
-  "author": [
-    "Arnar Gauti Ingason", 
-    "Atli Guðlaugsson",
-    "Þórdís Jóna Jónsdóttir"
-  ],
+  "author": "Arnar Gauti Ingason, Atli Guðlaugsson, Þórdís Jóna Jónsdóttir",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/arnarg/evaluation-app/issues"
   },
-  "homepage": "https://github.com/arnarg/evaluation-app"
+  "homepage": "https://github.com/arnarg/evaluation-app",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.8.0"
+  }
 }
