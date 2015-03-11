@@ -52,9 +52,8 @@ module.exports = function (grunt) {
 		}
 	};
 
-	grunt.registerTask('default', ['karma', 'jshint', 'concat', 'uglify']);
+	grunt.registerTask('default', [, 'jshint', 'concat', 'uglify']);
 
-	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
