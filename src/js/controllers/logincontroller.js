@@ -14,5 +14,5 @@ function ($scope, $rootScope, $state){
 
 	$scope.evals = function(){
 		$state.go("evaluations");
-	}
+	};
 }]);

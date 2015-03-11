@@ -10,10 +10,10 @@ angular.module("evalApp")
                     url: "/login",
                     templateUrl: "views/login.html",
                     controller: "loginController"
-                }),
+                })
                 .state("evaluations", {
                     url: "/evaluations",
-                    templateUrl: "views/evluations.html",
+                    templateUrl: "views/evaluations.html",
                     controller: "evaluationController"
                 });
         }
