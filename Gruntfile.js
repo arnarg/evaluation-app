@@ -13,7 +13,6 @@ module.exports = function (grunt) {
 				eqnull: true,
 				node:   true,
 				undef:  true,
-				browser: true,	// to allow document
 				globals: {
 					_:       false,
 					jQuery:  false,
@@ -21,9 +20,7 @@ module.exports = function (grunt) {
 					moment:  false,
 					console: false,
 					$:       false,
-					io:      false,
-					toastr: true,
-					ChatClient: true // global variable for the angular module
+					io:      false
 				}
 			},
 			src: ['src/js/app.js', 'src/js/**/*.js'],
