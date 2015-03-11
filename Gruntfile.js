@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 	var taskConfig = {
 		pkg: grunt.file.readJSON('package.json'),
+
 		jshint: {
 			options: {
 				curly:  true,
