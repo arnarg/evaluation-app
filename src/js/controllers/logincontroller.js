@@ -11,4 +11,8 @@ function ($scope, $rootScope, $state){
 			$scope.errorMessage = "Please input nickname and password";
 		}
 	};
+
+	$scope.evals = function(){
+		$state.go("evaluations");
+	}
 }]);
