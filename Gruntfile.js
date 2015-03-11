@@ -1,6 +1,12 @@
 module.exports = function (grunt) {
 	var taskConfig = {
 		pkg: grunt.file.readJSON('package.json'),
+		
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js'
+			}
+		},
 		jshint: {
 			options: {
 				curly:  true,
@@ -46,8 +52,9 @@ module.exports = function (grunt) {
 		}
 	};
 
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+	grunt.registerTask('default', ['karma', 'jshint', 'concat', 'uglify']);
 
+	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
