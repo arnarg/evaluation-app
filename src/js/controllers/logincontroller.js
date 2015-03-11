@@ -10,5 +10,5 @@ function ($scope, $rootScope, $state){
 		if($scope.nicname === "" || $scope.password === ""){
 			$scope.errorMessage = "Please input nickname and password";
 		}
-	}
+	};
 }]);
