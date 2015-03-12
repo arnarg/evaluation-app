@@ -34,6 +34,10 @@ angular.module("evalApp").factory("MyResource",
 		getCourses: function(tok){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "my/courses");
+		},
+		getEvaluations: function(tok){
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.get(SERVER_URL + "my/evaluations");
 		}
 	};
 }]);
