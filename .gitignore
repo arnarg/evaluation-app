@@ -16,5 +16,5 @@ src/dest/
 # minified js
 public/js/
 
-# coverage
+# code coverage
 coverage/

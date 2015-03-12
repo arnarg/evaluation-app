@@ -2,7 +2,6 @@
 // Generated on Wed Mar 11 2015 13:44:38 GMT+0000 (GMT)
 module.exports = function(config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
@@ -10,10 +9,10 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
     // list of files / patterns to load in the browser
     files: [
       'public/vendor/angular/angular.js',
+      'public/vendor/angular-mocks/angular-mocks.js',
       'src/js/*.js',
       'src/test/*.spec.js'
     ],
@@ -25,7 +24,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-    	'src/js/*.js': ['coverage']
+      'src/js/**/*.js': ['coverage']
     },
 
     // test results reporter to use

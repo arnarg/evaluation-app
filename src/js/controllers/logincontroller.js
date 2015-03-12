@@ -16,5 +16,4 @@ function ($scope, $rootScope, $state, LoginResource){
 			});
 		}
 	};
-	
 }]);
