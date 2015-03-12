@@ -44,7 +44,7 @@ describe("loginController tests", function(){
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
 		it("should save right userdata when logging in", function(){
-			var nickname = "DABS";
+			var nickname = "dabs";
 			scope.nickname = nickname;
 			scope.login();
 			deferred.resolve(mockLogin.mockLoginResourceResponse);
