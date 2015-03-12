@@ -27,7 +27,7 @@ angular.module("evalApp")
                     controller: "TemplateController"
                 })
                 .state("evaluationStudent", {
-                    url: "/evaluation/:id",
+                    url: "/evaluation/:course/:semester/:id",
                     templateUrl: "views/evaluation.student.html",
                     controller: "evaluationController"
                 });

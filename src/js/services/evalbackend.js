@@ -18,7 +18,9 @@ angular.module("evalApp").factory("EvaluationsResource",
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "evaluations");
 		},
-		getEvaluation: function(id){
+		getEvaluation: function(tok, id){
+			//gæti verið að token sé óþarft
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "evaluations/:" + id);
 		},
 		saveEvaluation: function(tok, data){
@@ -27,6 +29,18 @@ angular.module("evalApp").factory("EvaluationsResource",
 		},
 	};
 }]);
+
+angular.module("evalApp").factory("CoursesResource",
+["$http", "SERVER_URL", function($http, SERVER_URL){
+	return {
+		getEvaluation: function(tok, course, semester, id){
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.get(SERVER_URL + "courses/" + course + "/" + semester + "/evaluations/" + id);
+		}
+	};
+}]);
+
+
 
 angular.module("evalApp").factory("MyResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){

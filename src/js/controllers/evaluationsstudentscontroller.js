@@ -18,7 +18,7 @@ function ($scope, $rootScope, $state, MyResource, userData){
 		$scope.evaluations = data.data;
 	});
 
-	$scope.openEvaluation = function(id){
-		$state.go("evaluationStudent", { id: id });
+	$scope.openEvaluation = function(course, semester, id){
+		$state.go("evaluationStudent", { course: course, semester: semester, id: id });
 	};
 }]);
