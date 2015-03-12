@@ -13,7 +13,8 @@ module.exports = function(config) {
     files: [
       'public/vendor/angular/angular.js',
       'public/vendor/angular-mocks/angular-mocks.js',
-      'src/js/*.js',
+      'public/vendor/angular-ui-router/release/angular-ui-router.min.js',
+      'src/js/**/*.js',
       'src/test/*.spec.js'
     ],
 
