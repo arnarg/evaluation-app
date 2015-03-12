@@ -1,5 +1,5 @@
 angular.module("evalApp", ['ui.router']);
-
+angular.module("evalApp").value("userData", { token: undefined, username: undefined, role: undefined});
 angular.module("evalApp")
     .config(["$stateProvider", "$urlRouterProvider",
         function($stateProvider, $urlRouterProvider) {
@@ -11,10 +11,10 @@ angular.module("evalApp")
                     templateUrl: "views/login.html",
                     controller: "loginController"
                 })
-                .state("evaluations", {
+                .state("evaluationsStudent", {
                     url: "/evaluations",
-                    templateUrl: "views/evaluations.html",
-                    controller: "evaluationController"
+                    templateUrl: "views/evaluations.student.html",
+                    controller: "evaluationsController"
                 });
         }
     ]);
