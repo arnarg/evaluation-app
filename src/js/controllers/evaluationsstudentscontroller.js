@@ -11,9 +11,14 @@ function ($scope, $rootScope, $state, MyResource, userData){
 		console.log(data);
 		$scope.courses = data.data;
 	});
+
 	MyResource.getEvaluations(userData.token).then(function(data){
 		console.log("Evaluations for this user:");
 		console.log(data);
 		$scope.evaluations = data.data;
 	});
+
+	$scope.openEvaluation = function(id){
+		$state.go("evaluationStudent", { id: id });
+	};
 }]);
