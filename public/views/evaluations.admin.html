@@ -1,1 +1,32 @@
-<p>Admin Evaluations</p>
+<h2>Admin Evaluations</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6"> 
+			<h3>Open Evaluations</h3>
+			<ul ng-repeat="evaluation in evaluations">
+				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<h3> Create new Template </h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"> 
+			<h3>Closed Evaluations</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"> 
+			<h3>Pending Evaluations</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"> 
+			<h3>Templates - just for testing</h3>
+			<ul ng-repeat="template in templates">
+			    <li>{{template.Title}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
