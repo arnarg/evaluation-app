@@ -45,9 +45,17 @@ angular.module("evalApp").factory("MyResource",
 angular.module("evalApp").factory("TemplatesResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){
 	return {
-		login: function(data){
-			console.log(data);
-			return $http.post(SERVER_URL + "login", data);
+		saveTemplate: function(tok, template) {
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.post(SERVER_URL + "evaluationtemplates/", template);
+		},
+		getTemplates: function(tok) {
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.get(SERVER_URL + "evaluationtemplates");
+		},
+		getTemplateByID: function(tok, ID) {
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.get(SERVER_URL + "evaluationtemplates/" + ID);
 		}
 	};
 }]);
