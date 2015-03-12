@@ -21,8 +21,8 @@ angular.module("evalApp").factory("EvaluationsResource",
 		getEvaluation: function(id){
 			return $http.get(SERVER_URL + "evaluations/:" + id);
 		},
-		postEvaluation: function(data){
-			console.log(data);
+		saveEvaluation: function(tok, data){
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.post(SERVER_URL + "evaluations", data);
 		},
 	};
