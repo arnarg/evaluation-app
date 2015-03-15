@@ -8,7 +8,6 @@ describe("loginController tests", function(){
 		scope = $rootScope.$new();
 
 		spyOn(_LoginResource_, 'login').and.callFake(function() {
-			console.log("login called");
 			deferred = $q.defer();
 			return deferred.promise;
 		});

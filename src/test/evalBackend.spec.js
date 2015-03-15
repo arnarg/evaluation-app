@@ -1,11 +1,14 @@
 describe("testing functions that talk to backend", function() {
+    var URL;
     beforeEach(module('evalApp'));
+    beforeEach(inject(function(SERVER_URL) {
+        URL = SERVER_URL;
+    }));
 
     describe("testing LoginResource", function() {
-        var LoginRes, URL;
+        var LoginRes;
         beforeEach(inject(function(LoginResource, SERVER_URL) {
             LoginRes = LoginResource;
-            URL = SERVER_URL;
         }));
 
         it("should POST correct data when trying to log in", inject(function($httpBackend) {
@@ -17,10 +20,9 @@ describe("testing functions that talk to backend", function() {
     });
 
     describe("testing EvaluationsResource", function() {
-        var EvalRes, URL;
+        var EvalRes;
         beforeEach(inject(function(EvaluationsResource, SERVER_URL) {
             EvalRes = EvaluationsResource;
-            URL = SERVER_URL;
         }));
 
         it("should put token in header and GET correct url when getting evaluations", inject(function($httpBackend) {
@@ -43,10 +45,9 @@ describe("testing functions that talk to backend", function() {
     });
 
     describe("testing CoursesResource", function() {
-        var CourseRes, URL;
+        var CourseRes;
         beforeEach(inject(function(CoursesResource, SERVER_URL) {
             CourseRes = CoursesResource;
-            URL = SERVER_URL;
         }));
 
         it("should put token in header and GET correct url when getting courses", inject(function($httpBackend) {
