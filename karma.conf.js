@@ -14,6 +14,7 @@ module.exports = function(config) {
       'public/vendor/angular/angular.js',
       'public/vendor/angular-mocks/angular-mocks.js',
       'public/vendor/angular-ui-router/release/angular-ui-router.min.js',
+      'public/vendor/angular-bootstrap/ui-bootstrap.min.js',
       'src/js/**/*.js',
       'src/test/**/*.spec.js'
     ],
