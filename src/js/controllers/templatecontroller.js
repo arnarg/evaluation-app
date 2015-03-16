@@ -1,6 +1,6 @@
 angular.module("evalApp").controller("TemplateController",
-["$scope", "$rootScope", "$state", "userData", "TemplatesResource", "$modal",
-function ($scope, $rootScope, $state, userData, TemplatesResource, $modal){
+["$scope","$state", "userData", "TemplatesResource", "$modal", "toastr",
+function ($scope, $state, userData, TemplatesResource, $modal, toastr){
 	$scope.errorMessage = "";
 	$scope.template = {
 		ID: 1,	// It don't matter
@@ -35,6 +35,7 @@ function ($scope, $rootScope, $state, userData, TemplatesResource, $modal){
 		$scope.template.IntroTextEN = $scope.template.IntroText;
 		TemplatesResource.saveTemplate(userData.token, $scope.template)
 			.then(function(data) {
+				toastr.success("Template was successfully saved", "Success!");
 				$state.go("evaluationsAdmin");
 			});
 	};
