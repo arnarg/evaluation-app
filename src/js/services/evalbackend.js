@@ -25,7 +25,7 @@ angular.module("evalApp").factory("EvaluationsResource",
 		saveEvaluation: function(tok, data){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.post(SERVER_URL + "evaluations", data);
-		},
+		}
 	};
 }]);
 
@@ -35,6 +35,10 @@ angular.module("evalApp").factory("CoursesResource",
 		getEvaluation: function(tok, course, semester, id){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "courses/" + course + "/" + semester + "/evaluations/" + id);
+		},
+		saveEvaluation: function(tok, course, semester, id, data){
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.post(SERVER_URL + "courses/" + course + "/" + semester + "/evaluations/" + id, data);
 		}
 	};
 }]);
