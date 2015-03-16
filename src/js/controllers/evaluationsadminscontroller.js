@@ -3,6 +3,9 @@ angular.module("evalApp").controller("evaluationsAdminController",
 function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, userData){
 	$scope.errorMessage = "";
 	$scope.evaluations = [];
+	$scope.openEvaluations = [];
+	$scope.closedEvaluations = [];
+	$scope.pendingEvaluations = [];
 	$scope.templates = [];
 	console.log("username in evals: " + userData.username);
 	console.log("role in evals: " + userData.role);
@@ -15,5 +18,20 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 		console.log("Evaluations for this user:");
 		console.log(data);
 		$scope.evaluations = data.data;
+		filterEvaluations();
 	});
+
+	function filterEvaluations(){
+		for(var i = 0; i < $scope.evaluations.length; ++i){
+			if($scope.evaluations[i].Status === "new"){
+				$scope.pendingEvaluations.push($scope.evaluations[i]);
+			}
+			else if($scope.evaluations[i].Status === "open"){
+				$scope.openEvaluations.push($scope.evaluations[i]);
+			}
+			else if($scope.evaluations[i].Status === "closed"){
+				$scope.closedEvaluations.push($scope.evaluations[i]);
+			}
+		}
+	}
 }]);

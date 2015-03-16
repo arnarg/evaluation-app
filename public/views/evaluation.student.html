@@ -6,7 +6,7 @@
 			<h3>Course Questions</h3>
 				<h4>{{introText}}</h4>
 				<ul ng-repeat="question in courseQuestions">
-				    <li>{{question.Text}}</li>
+				    <evaluation-question ng-model="question"> </evaluation-question>
 				</ul>
 		</div>
 	</div>

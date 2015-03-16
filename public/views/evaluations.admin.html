@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-6"> 
 			<h3>Open Evaluations</h3>
-			<ul ng-repeat="evaluation in evaluations">
+			<ul ng-repeat="evaluation in openEvaluations">
 				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
 			</ul>
 		</div>
@@ -14,11 +14,17 @@
 	<div class="row">
 		<div class="col-md-6"> 
 			<h3>Closed Evaluations</h3>
+			<ul ng-repeat="evaluation in closedEvaluations">
+				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+			</ul>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6"> 
 			<h3>Pending Evaluations</h3>
+			<ul ng-repeat="evaluation in pendingEvaluations">
+				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+			</ul>
 		</div>
 	</div>
 	<div class="row">
