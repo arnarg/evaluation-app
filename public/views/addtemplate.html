@@ -1,0 +1,20 @@
+<div>
+    <h3>Add question</h3>
+    <div class="input-group">
+        <span class="input-group-addon" id="title">Question</span>
+        <input type="text" class="form-control" ng-model="question.Text" aria-describedby="title">
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        {{question.Type}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('text')">Text</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('single')">Single</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('multiple')">Multiple</a></li>
+      </ul>
+    </div>
+    <button ng-click="cancel()" class="btn">Cancel</button>
+    <button ng-click="ok()" class="btn btn-primary">Submit</button>
+</div>
