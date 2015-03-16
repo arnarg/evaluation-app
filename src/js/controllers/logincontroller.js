@@ -11,7 +11,7 @@ function ($scope, $rootScope, $state, LoginResource, userData){
 		}
 		else{
 			LoginResource.login({user: $scope.nickname, pass: $scope.password}).then(function(data){
-				console.log(data);
+				//console.log(data);
 				userData.token = data.data.Token;
 				userData.username = data.data.User.FullName;
 				userData.role = data.data.User.Role;
