@@ -1,5 +1,5 @@
 angular.module("evalApp").controller("loginController",
-["$scope", "$rootScope", "$state", "LoginResource", "userData", 
+["$scope", "$rootScope", "$state", "LoginResource", "userData",
 function ($scope, $rootScope, $state, LoginResource, userData){
 	$scope.errorMessage = "";
 	$scope.nickname = "";
@@ -20,6 +20,10 @@ function ($scope, $rootScope, $state, LoginResource, userData){
 				}
 				else if(userData.role === "admin"){
 					$state.go("evaluationsAdmin");
+				}
+			}).catch(function(e) {
+				if (e.status === 401) {
+					$scope.errorMessage = "Username or password not found";
 				}
 			});
 		}

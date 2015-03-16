@@ -37,6 +37,23 @@ describe("loginController tests", function(){
 			scope.login();
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
+		it("should log errorMessage if we get 401 error from server (username or password not found)", inject(function($httpBackend) {
+			$httpBackend.expectGET('views/login.html').respond(200);
+			scope.nickname = "admon";
+			scope.password = "123456";
+
+			scope.login();
+
+			deferred.reject({
+				status: 401,
+				statusText: "Unauthorized"
+			});
+
+			rootScope.$apply();
+
+			expect(scope.errorMessage).toEqual("Username or password not found");
+			$httpBackend.flush();
+		}));
 		it("should save right userdata when logging in as student", inject(function(userData, $httpBackend){
 			$httpBackend.expectGET('views/login.html').respond(200);
 
