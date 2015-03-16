@@ -54,6 +54,22 @@ describe("loginController tests", function(){
 			expect(scope.errorMessage).toEqual("Username or password not found");
 			$httpBackend.flush();
 		}));
+		it("should log errorMessage if we get any other error from server", inject(function($httpBackend) {
+			$httpBackend.expectGET('views/login.html').respond(200);
+			scope.nickname = "admon";
+			scope.password = "123456";
+
+			scope.login();
+
+			deferred.reject({
+				status: 400,
+			});
+
+			rootScope.$apply();
+
+			expect(scope.errorMessage).toEqual("An error has occured, please try again");
+			$httpBackend.flush();
+		}));
 		it("should save right userdata when logging in as student", inject(function(userData, $httpBackend){
 			$httpBackend.expectGET('views/login.html').respond(200);
 
@@ -77,7 +93,7 @@ describe("loginController tests", function(){
 
 			expect(userData.username).toEqual(nickname);
 			expect(userData.token).toEqual("0123456789");
-			expect(userData.role).toEqual("student")
+			expect(userData.role).toEqual("student");
 
 			$httpBackend.flush();
 		}));
@@ -104,7 +120,7 @@ describe("loginController tests", function(){
 
 			expect(userData.username).toEqual(nickname);
 			expect(userData.token).toEqual("0123456789");
-			expect(userData.role).toEqual("admin")
+			expect(userData.role).toEqual("admin");
 
 			$httpBackend.flush();
 		}));
