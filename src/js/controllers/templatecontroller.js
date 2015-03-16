@@ -12,7 +12,7 @@ function ($scope, $rootScope, $state, userData, TemplatesResource, $modal){
 		});
 
 		modal.result.then(function(data) {
-			console.log(data);
+			$scope.questions.push(data);
 		}, function() {
 			console.log("Dismissed");
 		});

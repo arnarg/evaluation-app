@@ -15,8 +15,27 @@ function($scope, $modalInstance) {
         multiple: "Multiple choice"
     };
 
+    $scope.newAnswer = "";
+
+    var weightCounter = 1;
+
     $scope.setType = function(type) {
         $scope.question.Type = type;
+    };
+
+    $scope.addAnswer = function() {
+        if ($scope.newAnswer !== "") {
+            $scope.question.Answers.push({
+                ID: 1,  // Again doesn't matter
+                Text: $scope.newAnswer,
+                TextEN: undefined,
+                ImageURL: undefined,
+                Weight: weightCounter
+            });
+            $scope.newAnswer = "";
+            ++weightCounter;
+            console.log($scope.question.Answers);
+        }
     };
 
     $scope.ok = function() {
