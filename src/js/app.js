@@ -1,6 +1,7 @@
 angular.module("evalApp", [
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'chart.js'
 ]);
 
 angular.module("evalApp").value("userData", { token: undefined, username: undefined, role: undefined});
