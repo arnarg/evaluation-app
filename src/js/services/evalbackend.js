@@ -1,6 +1,5 @@
 angular.module("evalApp").constant("SERVER_URL", "http://dispatch.ru.is/h24/api/v1/");
 
-
 angular.module("evalApp").factory("LoginResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){
 	return {
@@ -20,7 +19,7 @@ angular.module("evalApp").factory("EvaluationsResource",
 		},
 		getEvaluation: function(tok, id){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
-			return $http.get(SERVER_URL + "evaluations/:" + id);
+			return $http.get(SERVER_URL + "evaluations/" + id);
 		},
 		saveEvaluation: function(tok, data){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
@@ -42,8 +41,6 @@ angular.module("evalApp").factory("CoursesResource",
 		}
 	};
 }]);
-
-
 
 angular.module("evalApp").factory("MyResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){
