@@ -7,12 +7,12 @@ describe("loginController tests", function(){
 		rootScope = $rootScope;
 		scope = $rootScope.$new();
 
-		spyOn(_LoginResource_, 'login').and.callFake(function() {
+		spyOn(_LoginResource_, "login").and.callFake(function() {
 			deferred = $q.defer();
 			return deferred.promise;
 		});
 
-		spyOn($state, 'go');
+		spyOn($state, "go");
 
 		controller = $controller("loginController", {
 			$scope: scope,
@@ -22,7 +22,6 @@ describe("loginController tests", function(){
 	}));
 
 	describe("login function", function(){
-
 		it("should log errorMessage if there is no nickname or password", function(){
 			scope.login();
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
@@ -38,7 +37,7 @@ describe("loginController tests", function(){
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
 		it("should log errorMessage if we get 401 error from server (username or password not found)", inject(function($httpBackend) {
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 			scope.nickname = "admon";
 			scope.password = "123456";
 
@@ -55,7 +54,7 @@ describe("loginController tests", function(){
 			$httpBackend.flush();
 		}));
 		it("should log errorMessage if we get any other error from server", inject(function($httpBackend) {
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 			scope.nickname = "admon";
 			scope.password = "123456";
 
@@ -71,7 +70,7 @@ describe("loginController tests", function(){
 			$httpBackend.flush();
 		}));
 		it("should save right userdata when logging in as student", inject(function(userData, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 
 			var nickname = "dabs";
 			scope.nickname = nickname;
@@ -98,7 +97,7 @@ describe("loginController tests", function(){
 			$httpBackend.flush();
 		}));
 		it("should save right userdata when logging in as admin", inject(function(userData, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 
 			var nickname = "admin";
 			scope.nickname = nickname;
@@ -129,7 +128,7 @@ describe("loginController tests", function(){
 	describe("state go", function(){
 		it("should go to correct state when logged in as student",
 		inject(function($state, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 
 			var nickname = "dabs";
 			scope.nickname = nickname;
@@ -155,7 +154,7 @@ describe("loginController tests", function(){
 		}));
 		it("should go to correct state when logged in as admin",
 		inject(function($state, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
+			$httpBackend.expectGET("views/login.html").respond(200);
 
 			var nickname = "admin";
 			scope.nickname = nickname;
