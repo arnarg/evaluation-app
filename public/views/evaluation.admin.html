@@ -5,7 +5,8 @@
 			<h3> Course Questions </h3>
 			<ul ng-repeat="question in selectedOption.Questions">
 			    <li>{{question.Text}}</li>
-			    <li ng-show="TextResults !== ''">{{question.TextResults}}</li>
+			    <p ng-show="question.TextResults !== ''">{{question.TextResults}}</p>
+			    <canvas id="bar" class="chart chart-bar" data="question.Data" labels="question.Labels" ng-show="question.TextResults === ''"></canvas>
 			</ul>
 		</div>
 		<div class="col-md-6">
