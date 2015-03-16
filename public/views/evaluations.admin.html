@@ -4,7 +4,7 @@
 		<div class="col-md-6"> 
 			<h3>Open Evaluations</h3>
 			<ul ng-repeat="evaluation in openEvaluations">
-				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+				<li style="color:green">{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
 			</ul>
 		</div>
 		<div class="col-md-4">
@@ -15,7 +15,7 @@
 		<div class="col-md-6"> 
 			<h3>Closed Evaluations</h3>
 			<ul ng-repeat="evaluation in closedEvaluations">
-				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+				<a data-ng-click="openEvaluationResult(evaluation.ID)"><li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li></a>
 			</ul>
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 		<div class="col-md-6"> 
 			<h3>Pending Evaluations</h3>
 			<ul ng-repeat="evaluation in pendingEvaluations">
-				<li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+				<li style="color:orange">{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
 			</ul>
 		</div>
 	</div>

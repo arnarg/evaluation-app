@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("evaluationController",
+angular.module("evalApp").controller("evaluationStudentController",
 ["$scope", "$rootScope", "$state", "$stateParams",  "CoursesResource", "userData", 
 function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 	$scope.courseQuestions = [];

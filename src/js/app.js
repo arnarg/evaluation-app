@@ -17,7 +17,7 @@ angular.module("evalApp")
                     controller: "evaluationsStudentController"
                 })
                 .state("evaluationsAdmin", {
-                    url: "/evaluations",
+                    url: "/evaluationsAdmin",
                     templateUrl: "views/evaluations.admin.html",
                     controller: "evaluationsAdminController"
                 })
@@ -29,7 +29,12 @@ angular.module("evalApp")
                 .state("evaluationStudent", {
                     url: "/evaluation/:course/:semester/:id",
                     templateUrl: "views/evaluation.student.html",
-                    controller: "evaluationController"
+                    controller: "evaluationStudentController"
+                })
+                .state("evaluationAdmin", {
+                    url: "/evaluation/:id",
+                    templateUrl: "views/evaluation.admin.html",
+                    controller: "evaluationAdminController"
                 });
         }
     ]);

@@ -19,7 +19,6 @@ angular.module("evalApp").factory("EvaluationsResource",
 			return $http.get(SERVER_URL + "evaluations");
 		},
 		getEvaluation: function(tok, id){
-			//gæti verið að token sé óþarft
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "evaluations/:" + id);
 		},

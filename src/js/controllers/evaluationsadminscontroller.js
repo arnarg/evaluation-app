@@ -34,4 +34,8 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 			}
 		}
 	}
+
+	$scope.openEvaluationResult = function (id){
+		$state.go("evaluationAdmin", { id: id });
+	};
 }]);
