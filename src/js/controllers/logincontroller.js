@@ -25,6 +25,9 @@ function ($scope, $rootScope, $state, LoginResource, userData){
 				if (e.status === 401) {
 					$scope.errorMessage = "Username or password not found";
 				}
+				else {
+					$scope.errorMessage = "An error has occured, please try again";
+				}
 			});
 		}
 	};
