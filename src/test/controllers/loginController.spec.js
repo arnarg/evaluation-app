@@ -1,18 +1,17 @@
-describe("loginController tests", function(){
+describe("loginController tests", function() {
 	var controller, scope, rootScope, deferred;
 
 	beforeEach(module("evalApp"));
-
 	beforeEach(inject(function($controller, $rootScope, $q, $state, _LoginResource_) {
 		rootScope = $rootScope;
 		scope = $rootScope.$new();
 
-		spyOn(_LoginResource_, 'login').and.callFake(function() {
+		spyOn(_LoginResource_, "login").and.callFake(function() {
 			deferred = $q.defer();
 			return deferred.promise;
 		});
 
-		spyOn($state, 'go');
+		spyOn($state, "go");
 
 		controller = $controller("loginController", {
 			$scope: scope,
@@ -21,9 +20,8 @@ describe("loginController tests", function(){
 		});
 	}));
 
-	describe("login function", function(){
-
-		it("should log errorMessage if there is no nickname or password", function(){
+	describe("login function", function() {
+		it("should log errorMessage if there is no nickname or password", function() {
 			scope.login();
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
@@ -38,8 +36,8 @@ describe("loginController tests", function(){
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
 		it("should log errorMessage if we get 401 error from server (username or password not found)", inject(function($httpBackend) {
-			$httpBackend.expectGET('views/login.html').respond(200);
-			scope.nickname = "admon";
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "123456";
 
 			scope.login();
@@ -55,8 +53,8 @@ describe("loginController tests", function(){
 			$httpBackend.flush();
 		}));
 		it("should log errorMessage if we get any other error from server", inject(function($httpBackend) {
-			$httpBackend.expectGET('views/login.html').respond(200);
-			scope.nickname = "admon";
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "123456";
 
 			scope.login();
@@ -70,11 +68,9 @@ describe("loginController tests", function(){
 			expect(scope.errorMessage).toEqual("An error has occured, please try again");
 			$httpBackend.flush();
 		}));
-		it("should save right userdata when logging in as student", inject(function(userData, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
-
-			var nickname = "dabs";
-			scope.nickname = nickname;
+		it("should save right userdata when logging in as a student", inject(function(userData, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "dabs";
 			scope.password = "123456";
 
 			scope.login();
@@ -83,7 +79,7 @@ describe("loginController tests", function(){
 				data: {
 					Token: "0123456789",
 					User: {
-						FullName: nickname,
+						FullName: "dabs",
 						Role: "student"
 					}
 				}
@@ -91,17 +87,15 @@ describe("loginController tests", function(){
 
 			rootScope.$apply();
 
-			expect(userData.username).toEqual(nickname);
+			expect(userData.username).toEqual("dabs");
 			expect(userData.token).toEqual("0123456789");
 			expect(userData.role).toEqual("student");
 
 			$httpBackend.flush();
 		}));
-		it("should save right userdata when logging in as admin", inject(function(userData, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
-
-			var nickname = "admin";
-			scope.nickname = nickname;
+		it("should save right userdata when logging in as an admin", inject(function(userData, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "123456";
 
 			scope.login();
@@ -110,7 +104,7 @@ describe("loginController tests", function(){
 				data: {
 					Token: "0123456789",
 					User: {
-						FullName: nickname,
+						FullName: "admin",
 						Role: "admin"
 					}
 				}
@@ -118,7 +112,7 @@ describe("loginController tests", function(){
 
 			rootScope.$apply();
 
-			expect(userData.username).toEqual(nickname);
+			expect(userData.username).toEqual("admin");
 			expect(userData.token).toEqual("0123456789");
 			expect(userData.role).toEqual("admin");
 
@@ -126,13 +120,10 @@ describe("loginController tests", function(){
 		}));
 	});
 
-	describe("state go", function(){
-		it("should go to correct state when logged in as student",
-		inject(function($state, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
-
-			var nickname = "dabs";
-			scope.nickname = nickname;
+	describe("state go", function() {
+		it("should go to correct state when logged in as student", inject(function($state, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "dabs";
 			scope.password = "12345";
 
 			scope.login();
@@ -141,7 +132,7 @@ describe("loginController tests", function(){
 				data: {
 					Token: "0123456789",
 					User: {
-						FullName: nickname,
+						FullName: "dabs",
 						Role: "student"
 					}
 				}
@@ -153,12 +144,9 @@ describe("loginController tests", function(){
 
 			$httpBackend.flush();
 		}));
-		it("should go to correct state when logged in as admin",
-		inject(function($state, $httpBackend){
-			$httpBackend.expectGET('views/login.html').respond(200);
-
-			var nickname = "admin";
-			scope.nickname = nickname;
+		it("should go to correct state when logged in as admin", inject(function($state, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "12345";
 
 			scope.login();
@@ -167,7 +155,7 @@ describe("loginController tests", function(){
 				data: {
 					Token: "0123456789",
 					User: {
-						FullName: nickname,
+						FullName: "admin",
 						Role: "admin"
 					}
 				}

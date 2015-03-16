@@ -1,6 +1,5 @@
 angular.module("evalApp").constant("SERVER_URL", "http://dispatch.ru.is/h24/api/v1/");
 
-
 angular.module("evalApp").factory("LoginResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){
 	return {
@@ -19,14 +18,13 @@ angular.module("evalApp").factory("EvaluationsResource",
 			return $http.get(SERVER_URL + "evaluations");
 		},
 		getEvaluation: function(tok, id){
-			//gæti verið að token sé óþarft
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
-			return $http.get(SERVER_URL + "evaluations/:" + id);
+			return $http.get(SERVER_URL + "evaluations/" + id);
 		},
 		saveEvaluation: function(tok, data){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.post(SERVER_URL + "evaluations", data);
-		},
+		}
 	};
 }]);
 
@@ -36,11 +34,13 @@ angular.module("evalApp").factory("CoursesResource",
 		getEvaluation: function(tok, course, semester, id){
 			$http.defaults.headers.common.Authorization = "Basic " + tok;
 			return $http.get(SERVER_URL + "courses/" + course + "/" + semester + "/evaluations/" + id);
+		},
+		saveEvaluation: function(tok, course, semester, id, data){
+			$http.defaults.headers.common.Authorization = "Basic " + tok;
+			return $http.post(SERVER_URL + "courses/" + course + "/" + semester + "/evaluations/" + id, data);
 		}
 	};
 }]);
-
-
 
 angular.module("evalApp").factory("MyResource",
 ["$http", "SERVER_URL", function($http, SERVER_URL){
