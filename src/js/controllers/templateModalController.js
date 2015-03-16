@@ -9,6 +9,12 @@ function($scope, $modalInstance) {
         Answers: []
     };
 
+    $scope.selectedType = {
+        text: "Text",
+        single: "Single choice",
+        multiple: "Multiple choice"
+    };
+
     $scope.setType = function(type) {
         $scope.question.Type = type;
     };

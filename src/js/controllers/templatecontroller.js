@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("templateController",
+angular.module("evalApp").controller("TemplateController",
 ["$scope", "$rootScope", "$state", "userData", "TemplatesResource", "$modal",
 function ($scope, $rootScope, $state, userData, TemplatesResource, $modal){
 	$scope.errorMessage = "";
