@@ -36,8 +36,8 @@ describe("loginController tests", function() {
 			expect(scope.errorMessage).toEqual("Please input nickname and password");
 		});
 		it("should log errorMessage if we get 401 error from server (username or password not found)", inject(function($httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
-			scope.nickname = "admon";
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "123456";
 
 			scope.login();
@@ -53,8 +53,8 @@ describe("loginController tests", function() {
 			$httpBackend.flush();
 		}));
 		it("should log errorMessage if we get any other error from server", inject(function($httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
-			scope.nickname = "admon";
+			$httpBackend.expect("GET", "views/login.html").respond(200);
+			scope.nickname = "admin";
 			scope.password = "123456";
 
 			scope.login();
@@ -68,8 +68,8 @@ describe("loginController tests", function() {
 			expect(scope.errorMessage).toEqual("An error has occured, please try again");
 			$httpBackend.flush();
 		}));
-		it("should save right userdata when logging in as student", inject(function(userData, $httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
+		it("should save right userdata when logging in as a student", inject(function(userData, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
 			scope.nickname = "dabs";
 			scope.password = "123456";
 
@@ -93,8 +93,8 @@ describe("loginController tests", function() {
 
 			$httpBackend.flush();
 		}));
-		it("should save right userdata when logging in as admin", inject(function(userData, $httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
+		it("should save right userdata when logging in as an admin", inject(function(userData, $httpBackend) {
+			$httpBackend.expect("GET", "views/login.html").respond(200);
 			scope.nickname = "admin";
 			scope.password = "123456";
 
@@ -122,7 +122,7 @@ describe("loginController tests", function() {
 
 	describe("state go", function() {
 		it("should go to correct state when logged in as student", inject(function($state, $httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
+			$httpBackend.expect("GET", "views/login.html").respond(200);
 			scope.nickname = "dabs";
 			scope.password = "12345";
 
@@ -145,7 +145,7 @@ describe("loginController tests", function() {
 			$httpBackend.flush();
 		}));
 		it("should go to correct state when logged in as admin", inject(function($state, $httpBackend) {
-			$httpBackend.expectGET("views/login.html").respond(200);
+			$httpBackend.expect("GET", "views/login.html").respond(200);
 			scope.nickname = "admin";
 			scope.password = "12345";
 
