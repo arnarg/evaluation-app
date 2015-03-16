@@ -15,7 +15,7 @@ module.exports = function(config) {
       'public/vendor/angular-mocks/angular-mocks.js',
       'public/vendor/angular-ui-router/release/angular-ui-router.min.js',
       'src/js/**/*.js',
-      'src/test/*.spec.js'
+      'src/test/**/*.spec.js'
     ],
 
     // list of files to exclude
