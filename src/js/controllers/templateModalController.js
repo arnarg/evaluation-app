@@ -34,7 +34,6 @@ function($scope, $modalInstance) {
             });
             $scope.newAnswer = "";
             ++weightCounter;
-            console.log($scope.question.Answers);
         }
     };
 
