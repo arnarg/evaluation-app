@@ -2,11 +2,12 @@
 <html>
     <head>
     	<title>Eval App</title>
-    	<link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="vendor/angular-chart.js/dist/angular-chart.css">
     	<link rel="stylesheet" href="vendor/angular-toastr/dist/angular-toastr.min.css">
+    	<link rel="stylesheet" href="css/main.css">
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     	<script src="vendor/angular/angular.min.js"></script>
    		<script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -31,7 +32,7 @@
 
                     <ul class="nav navbar-nav">
                         <li ng-repeat="n in navigation">
-                            <a data-ui-sref="n.State">{{n.Title}}</a>
+                            <a data-ui-sref="{{n.State}}">{{n.Title}}</a>
                         </li>
                     </ul>
 
