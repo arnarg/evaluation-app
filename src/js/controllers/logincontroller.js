@@ -15,6 +15,7 @@ function ($scope, $rootScope, $state, LoginResource, userData){
 				userData.token = data.data.Token;
 				userData.username = data.data.User.FullName;
 				userData.role = data.data.User.Role;
+				$rootScope.$broadcast("login");
 				if(userData.role === "student"){
 					$state.go("evaluationsStudent");
 				}

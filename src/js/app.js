@@ -5,7 +5,11 @@ angular.module("evalApp", [
     'toastr'
 ]);
 
-angular.module("evalApp").value("userData", { token: undefined, username: undefined, role: undefined});
+angular.module("evalApp").value("userData", {
+    token: undefined,
+    username: undefined,
+    role: undefined
+});
 
 angular.module("evalApp")
 	.config(["$stateProvider", "$urlRouterProvider",

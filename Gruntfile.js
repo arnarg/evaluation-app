@@ -52,10 +52,14 @@ module.exports = function (grunt) {
 		},
 		less: {
 			development: {
+				options: {
+					paths: ["public/vendor/bootstrap/less/"]
+				},
                 files: {"public/css/main.css": "src/less/main.less"}
             },
             production: {
                 options: {
+					paths: ["public/vendor/bootstrap/less/"],
                     cleancss: true
                 },
                 files: {"public/css/main.css": "src/less/main.less"}
