@@ -3,6 +3,7 @@ function($scope, $state, userData) {
     $scope.loggedin = false;
 
     $scope.$on("login", function(e) {
+        console.log(userData);
         if (userData.role === "admin") {
             $scope.navigation = [
                 {
@@ -31,7 +32,9 @@ function($scope, $state, userData) {
     });
 
     $scope.logout = function() {
-        userData = {};
+        userData.token = undefined;
+        userData.username = undefined;
+        userData.role = undefined;
         $scope.loggedin = false;
         $scope.navigation = undefined;
         $state.go("login");

@@ -37,7 +37,10 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right" ng-show="loggedin">
-                        <li><span>{{username}}</span></li>
+                        <li><p class="navbar-text">
+                            <span class="glyphicon glyphicon-user"></span>
+                            {{username}}
+                        </p></li>
                         <li><a data-ng-click="logout()">Logout</a></li>
                     </ul>
 
