@@ -33,6 +33,11 @@ angular.module("evalApp")
 					templateUrl: "views/template.html",
 					controller: "TemplateController"
 				})
+                .state("evaluation", {
+                    url: "/evaluation",
+                    templateUrl: "views/createEvaluation.html",
+                    controller: "CreateEvaluationController"
+                })
 				.state("evaluationStudent", {
 					url: "/evaluation/:course/:semester/:id",
 					templateUrl: "views/evaluation.student.html",
