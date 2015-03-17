@@ -16,5 +16,8 @@ src/dest/
 # minified js
 public/js/
 
+# pre-compiled less
+public/css/
+
 # code coverage
 coverage/
