@@ -1,10 +1,10 @@
-<h2>{{evalTitle}} - {{course}}</h2>
 
 <div class="container">
+	<h2>{{evalTitle}} - {{course}}</h2>
 	<div class="row">
 		<div class="col-md-6">
+			<p>{{introText}}</p>
 			<h3>Course Questions</h3>
-				<h4>{{introText}}</h4>
 				<ul ng-repeat="question in courseQuestions">
 				    <evaluation-question ng-model="question"></evaluation-question>
 				</ul>
