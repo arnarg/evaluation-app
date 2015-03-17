@@ -13,8 +13,11 @@ module.exports = function(config) {
     files: [
       'public/vendor/angular/angular.js',
       'public/vendor/angular-mocks/angular-mocks.js',
-      'public/vendor/angular-ui-router/release/angular-ui-router.min.js',
-      'public/vendor/angular-bootstrap/ui-bootstrap.min.js',
+      'public/vendor/angular-ui-router/release/angular-ui-router.min.js',   // These are
+      'public/vendor/angular-bootstrap/ui-bootstrap.min.js',                // required
+      'public/vendor/Chart.js/Chart.min.js',                                //
+      'public/vendor/angular-chart.js/dist/angular-chart.min.js',           //
+      'public/vendor/angular-toastr/dist/angular-toastr.tpls.js',           //
       'src/js/**/*.js',
       'src/test/**/*.spec.js'
     ],

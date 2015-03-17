@@ -2,10 +2,32 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="templateName">Template name</label>
+                <input type="text" class="form-control" ng-model="template.Title" id="templateName">
+            </div>
+            <div class="form-group">
+                <label for="templateIntro">Description</label>
+                <textarea class="form-control" rows="4" ng-model="template.IntroText"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Course questions</h4>
+            <evaluation-question ng-repeat="q in template.CourseQuestions" ng-model="q"></evaluation-question>
+            <a ng-click="addQuestion('course')">Add question</a>
+        </div>
+        <div class="col-md-6">
+            <h4>Teacher questions</h4>
+            <evaluation-question ng-repeat="q in template.TeacherQuestions" ng-model="q"></evaluation-question>
+            <a ng-click="addQuestion('teacher')">Add question</a>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
-            Template name: <input type="text" name="name" value="" ng-model="templateTitle">
-            <evaluation-template ng-repeat="question in questions" ng-model="question"></evaluation-question>
-            <a ng-click="addQuestion()">Add question</a>
+            <button class="btn btn-primary pull-right" ng-click="saveTemplate()">Save</button>
         </div>
     </div>
 </div>
