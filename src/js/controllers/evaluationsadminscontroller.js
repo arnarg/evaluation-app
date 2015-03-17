@@ -13,8 +13,8 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 		$scope.templates = data.data;
 	});
 	EvaluationsResource.getEvaluations(userData.token).then(function(data){
-		//console.log("Evaluations for this user:");
-		//console.log(data);
+		console.log("Admin Evaluations:");
+		console.log(data);
 		$scope.evaluations = data.data;
 		filterEvaluations();
 	});
