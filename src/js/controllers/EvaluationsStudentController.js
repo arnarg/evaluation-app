@@ -1,7 +1,6 @@
 angular.module("evalApp").controller("EvaluationsStudentController",
 ["$scope", "$rootScope", "$state", "MyResource", "userData", 
 function ($scope, $rootScope, $state, MyResource, userData){
-	$scope.errorMessage = "";
 	$scope.courses = [];
 	$scope.evaluations = [];
 	MyResource.getCourses(userData.token).then(function(data){
@@ -9,8 +8,6 @@ function ($scope, $rootScope, $state, MyResource, userData){
 	});
 
 	MyResource.getEvaluations(userData.token).then(function(data){
-		console.log("Evaluations for this user:");
-		console.log(data);
 		$scope.evaluations = data.data;
 	});
 

@@ -8,7 +8,7 @@
 			placeholder="Username" required autofocus data-ng-model="nickname"
 			data-ng-keyup="$event.keyCode == 13 && login()" required/>
 
-		<span style="color:red" ng-show="loginForm.nickname.$dirty && loginForm.nickname.$invalid">
+		<span class="label label-danger" ng-show="loginForm.nickname.$dirty && loginForm.nickname.$invalid">
 			<span ng-show="loginForm.nickname.$error.required">Username is required.</span>
 		</span>
 
@@ -18,7 +18,7 @@
 			placeholder="Password" required data-ng-model="password"
 			data-ng-keyup="$event.keyCode == 13 && login()">
 
-		<span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+		<span class="label label-danger" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
 			<span ng-show="loginForm.password.$error.required">Password is required.</span>
 		</span>
 

@@ -1,6 +1,6 @@
 angular.module("evalApp").controller("EvaluationStudentController",
-["$scope", "$rootScope", "$state", "$stateParams",  "CoursesResource", "userData", 
-function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
+["$scope", "$state", "$stateParams",  "CoursesResource", "userData", 
+function ($scope, $state, $stateParams, CoursesResource, userData){
 	$scope.courseQuestions = [];
 	$scope.teachers = [];
 	$scope.introText = "";
@@ -15,16 +15,12 @@ function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 	CoursesResource.getEvaluation(userData.token, $stateParams.course, $stateParams.semester, $stateParams.id)
 	.then(function(data){
 		$scope.courseQuestions = data.data.CourseQuestions;
-		console.log("course questions");
-		console.log($scope.courseQuestions);
 		for(var i = 0; i < $scope.teachers.length; ++i){
 			$scope.teachers[i].teacherQuestions = angular.copy(data.data.TeacherQuestions);
 			for(var k = 0; k < $scope.teachers[i].teacherQuestions.length; ++k){
 				$scope.teachers[i].teacherQuestions[k].SSN = $scope.teachers[i].SSN;
 			}
 		}
-		console.log("teachers");
-		console.log($scope.teachers);
 		$scope.introText = data.data.IntroText;
 		$scope.evalTitle = data.data.Title;
 	});
@@ -50,13 +46,9 @@ function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 				});
 			}
 		}
-
 		
-
 		CoursesResource.saveEvaluation(userData.token, $stateParams.course, $stateParams.semester, $stateParams.id, QuestionAnswers)
 		.then(function(data){
-			console.log("SAVE EVALUATION:");
-			console.log(data);
 			$state.go("evaluationsStudent");
 		}).catch(function(e) {
 			console.log("Something went wrong with saving the evaluation");
