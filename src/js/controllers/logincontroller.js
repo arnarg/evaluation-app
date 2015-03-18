@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("loginController",
+angular.module("evalApp").controller("LoginController",
 ["$scope", "$rootScope", "$state", "LoginResource", "userData",
 function ($scope, $rootScope, $state, LoginResource, userData){
 	$scope.errorMessage = "";

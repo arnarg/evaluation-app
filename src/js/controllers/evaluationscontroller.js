@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("evaluationsController",
+angular.module("evalApp").controller("EvaluationsController",
 ["$scope", "$rootScope", "$state", "MyResource", "userData", 
 function ($scope, $rootScope, $state, MyResource, userData){
 	$scope.errorMessage = "";
