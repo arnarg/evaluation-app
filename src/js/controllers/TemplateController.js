@@ -22,7 +22,8 @@ function ($scope, $state, userData, TemplatesResource, $modal, toastr){
 			if (type === "course") {
 				$scope.template.CourseQuestions.push(data);
 			}
-			else if (type === "teacher") {
+			// Type === teacher
+			else {
 				$scope.template.TeacherQuestions.push(data);
 			}
 		}, function() {
