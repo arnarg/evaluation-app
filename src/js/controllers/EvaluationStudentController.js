@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("evaluationStudentController",
+angular.module("evalApp").controller("EvaluationStudentController",
 ["$scope", "$rootScope", "$state", "$stateParams",  "CoursesResource", "userData", 
 function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 	$scope.courseQuestions = [];
@@ -39,11 +39,9 @@ function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 		.then(function(data){
 			console.log("SAVE EVALUATION:");
 			console.log(data);
-			$state.go("evaluationsStudent");		
+			$state.go("evaluationsStudent");
 		}).catch(function(e) {
 			console.log("Something went wrong with saving the evaluation");
 		});
-
 	};
-
 }]);

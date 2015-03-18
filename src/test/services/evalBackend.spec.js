@@ -67,6 +67,14 @@ describe("testing functions that talk to backend", function() {
 			CourseRes.getEvaluation("0123456789", 60, 20151, 28);
 			$httpBackend.flush();
 		}));
+		it("should put token in header and POST at correct url when saving evaluation", inject(function($httpBackend) {
+			$httpBackend.expect("POST", URL + "courses/60/20151/evaluations/28", null, function(headers) {
+				expect(headers.Authorization).toBe("Basic 0123456789");
+				return headers.Authorization === "Basic 0123456789";
+			}).respond(200, "mock data");
+			CourseRes.saveEvaluation("0123456789", 60, 20151, 28);
+			$httpBackend.flush();
+		}));
 	});
 	
 	describe("testing MyResource", function() {

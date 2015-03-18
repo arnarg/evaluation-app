@@ -3,9 +3,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h3> Open evaluations </h3>
-			<ul class="list-group" ng-repeat="evaluation in evaluations">
-				<a data-ng-click="openEvaluation(evaluation.CourseID, evaluation.Semester, evaluation.ID)"><li class="list-group-item" >{{evaluation.TemplateName}} - {{evaluation.CourseName}}</li></a>
-			</ul>
+			<div class="list-group list-group-open" >
+				<a ng-repeat="evaluation in evaluations" class="list-group-item" data-ng-click="openEvaluation(evaluation.CourseID, evaluation.Semester, evaluation.ID)">
+					<h4> {{evaluation.TemplateName}} - {{evaluation.CourseName}} </h4>
+				</a>
+			</div>
 		</div>
 		<div class="col-md-4">
 			<h3> Courses </h3>

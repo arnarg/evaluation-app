@@ -1,6 +1,6 @@
 angular.module("evalApp").controller("evaluationsStudentController",
-["$scope", "$rootScope", "$state", "MyResource", "userData", 
-function ($scope, $rootScope, $state, MyResource, userData){
+["$scope", "$state", "MyResource", "userData", 
+function ($scope, $state, MyResource, userData){
 	$scope.errorMessage = "";
 	$scope.courses = [];
 	$scope.evaluations = [];

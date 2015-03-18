@@ -1,4 +1,4 @@
-describe("loginController tests", function() {
+describe("LoginController tests", function() {
 	var controller, scope, rootScope, deferred;
 
 	beforeEach(module("evalApp"));
@@ -13,7 +13,7 @@ describe("loginController tests", function() {
 
 		spyOn($state, "go");
 
-		controller = $controller("loginController", {
+		controller = $controller("LoginController", {
 			$scope: scope,
 			$rootScope: rootScope,
 			LoginResource: _LoginResource_

@@ -15,7 +15,7 @@ function ($scope, $state, userData, TemplatesResource, $modal, toastr){
 	$scope.addQuestion = function(type) {
 		var modal = $modal.open({
 			templateUrl: "views/addtemplate.html",
-			controller: "templateModalController"
+			controller: "TemplateModalController"
 		});
 
 		modal.result.then(function(data) {

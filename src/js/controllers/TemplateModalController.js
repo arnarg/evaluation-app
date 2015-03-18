@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("templateModalController", ["$scope", "$modalInstance",
+angular.module("evalApp").controller("TemplateModalController", ["$scope", "$modalInstance",
 function($scope, $modalInstance) {
     $scope.question = {
         ID: 1,  // Doesn't matter, API sets ID

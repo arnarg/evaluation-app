@@ -1,4 +1,4 @@
-angular.module("evalApp").controller("evaluationAdminController",
+angular.module("evalApp").controller("EvaluationAdminController",
 ["$scope", "$rootScope", "$state", "$stateParams",  "EvaluationsResource", "userData", "toastr",  
 function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userData, toastr){
 	$scope.title = "";
