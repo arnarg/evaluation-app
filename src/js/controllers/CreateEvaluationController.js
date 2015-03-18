@@ -38,7 +38,10 @@ function($scope, $state, userData, TemplatesResource, EvaluationsResource, toast
                 StartDate: $scope.StartDate.toISOString(),
                 EndDate: $scope.EndDate.toISOString()
             }).then(function(data) {
-                console.log(data);
+                if (data.status === 204) {
+                    toastr.success("Evaluation was successfully saved", "Success!");
+                    $state.go("evaluationsAdmin");
+                }
             });
         }
     };
