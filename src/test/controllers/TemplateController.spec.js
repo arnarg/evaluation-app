@@ -6,8 +6,6 @@ describe("TemplateController tests", function() {
 		rootScope = $rootScope;
 		scope = $rootScope.$new();
 
-		var fakeModal = {};
-
 		spyOn(_TemplatesResource_, "saveTemplate").and.callFake(function() {
 			deferred = $q.defer();
 			return deferred.promise;
@@ -19,17 +17,12 @@ describe("TemplateController tests", function() {
 
 		var mockModal = {
 			result: {
-				then: function(confirmCallback) {
+				then: function(confirmCallback, cancelCallback) {
 					this.confirmCallback = confirmCallback;
-				},
-				close: function(item) {
-					//
-				},
-				dismiss: function(type) {
-					//
+					this.cancelCallback = cancelCallback;
 				}
 			}
-		}
+		};
 
 		controller = $controller("TemplateController", {
 			$scope: scope,
@@ -44,9 +37,9 @@ describe("TemplateController tests", function() {
 		});
 	});
 
-	/*describe("add questions", function() {
+	describe("add questions", function() {
 		it("should open modal window and redirect to right view", function() {
 			//
 		});
-	});*/
+	});
 });
