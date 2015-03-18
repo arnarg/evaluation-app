@@ -55,7 +55,7 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
 
     coverageReporter: {
-    	'dir': 'coverage/'
+      'dir': 'coverage/'
     },
 
     // Continuous Integration mode

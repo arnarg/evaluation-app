@@ -24,7 +24,7 @@ function($scope, $state, userData) {
 			];
 		}
 		// else userData.role === student
-		else if (userData.role === "student") {
+		else {
 			$scope.navigation = undefined;
 		}
 
