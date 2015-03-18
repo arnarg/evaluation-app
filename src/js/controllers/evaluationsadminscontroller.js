@@ -8,13 +8,9 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 	$scope.pendingEvaluations = [];
 	$scope.templates = [];
 	TemplatesResource.getTemplates(userData.token).then(function(data){
-		//console.log("Templates:");
-		//console.log(data);
 		$scope.templates = data.data;
 	});
 	EvaluationsResource.getEvaluations(userData.token).then(function(data){
-		//console.log("Admin Evaluations:");
-		//console.log(data);
 		$scope.evaluations = data.data;
 		filterEvaluations();
 	});

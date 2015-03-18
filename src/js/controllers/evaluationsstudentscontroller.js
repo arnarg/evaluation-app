@@ -5,8 +5,6 @@ function ($scope, $rootScope, $state, MyResource, userData){
 	$scope.courses = [];
 	$scope.evaluations = [];
 	MyResource.getCourses(userData.token).then(function(data){
-		//console.log("Courses for this user:");
-		//console.log(data);
 		$scope.courses = data.data;
 	});
 

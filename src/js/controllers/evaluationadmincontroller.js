@@ -1,6 +1,6 @@
 angular.module("evalApp").controller("evaluationAdminController",
-["$scope", "$rootScope", "$state", "$stateParams",  "EvaluationsResource", "userData", 
-function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userData){
+["$scope", "$rootScope", "$state", "$stateParams",  "EvaluationsResource", "userData", "toastr",  
+function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userData, toastr){
 	$scope.title = "";
 	$scope.titleEN = "";
 	$scope.courses = [];
@@ -19,11 +19,14 @@ function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userDat
 		console.log(data);
 		$scope.title = data.data.TemplateTitle;
 		$scope.titleEN = data.data.TemplateTitleEN;
-		$scope.courses = data.data.courses;
-		if($scope.courses === undefined){
-			$scope.selectedOption = { CourseID: "T-427-WEPO", CourseName: "Vefforritun", Questions: questions1};
+		$scope.courses = data.data.Courses;
+		if($scope.courses.length === 0){
+			toastr.error("No students answered this evaluation");
 		}
-		fillScopeData();
+		else {
+			$scope.selectedOption = $scope.courses[0];
+			fillScopeData();
+		}
 	});
 
 	$scope.getCourseResults = function(id){
@@ -36,17 +39,21 @@ function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userDat
 	};
 
 	function fillScopeData() {
+		var i = 0;
 		$scope.selectedOption.Questions.forEach(function(question){
 			var data = [];
 			var datamin = [];
 			var labels = [];
-			question.OptionsResult.forEach(function(option){
-				datamin.push(option.Count);
-				labels.push(option.AnswerText);
-			});
+			if(question.OptionsResults !== null){
+				question.OptionsResults.forEach(function(option){
+					datamin.push(option.Count);
+					labels.push(option.AnswerText);
+				});
+			}
 			data.push(datamin);
-			question.Data = data;
-			question.Labels = labels;
+			$scope.selectedOption.Questions[i].data = data;
+			$scope.selectedOption.Questions[i].labels = labels;
+			++i;
 		});
 	}
 

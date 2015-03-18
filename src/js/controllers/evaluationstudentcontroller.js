@@ -24,6 +24,7 @@ function ($scope, $rootScope, $state, $stateParams, CoursesResource, userData){
 				TeacherSSN: undefined,
 				Value: question.Answer
 			});
+			console.log(question);
 		});
 
 		$scope.teacherQuestions.forEach(function(question){
