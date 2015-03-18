@@ -1,38 +1,30 @@
-<h2>Admin Evaluations</h2>
 <div class="container">
+	<h2>Admin Evaluations</h2>
 	<div class="row">
 		<div class="col-md-6"> 
 			<h3>Open Evaluations</h3>
-			<ul ng-repeat="evaluation in openEvaluations">
-				<li style="color:green">{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
+			<ul class="list-group" ng-repeat="evaluation in openEvaluations">
+				<li class="list-group-item" style="color:green">{{evaluation.TemplateTitle}} 
+					<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p>
+				</li>
+			</ul>
+			<h3>Closed Evaluations</h3>
+			<ul class="list-group" ng-repeat="evaluation in closedEvaluations">
+				<a data-ng-click="openEvaluationResult(evaluation.ID)"><li class="list-group-item" >{{evaluation.TemplateTitle}}
+				<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p></li></a>
+			</ul>
+			<h3>Pending Evaluations</h3>
+			<ul class="list-group" ng-repeat="evaluation in pendingEvaluations">
+				<li class="list-group-item"  style="color:orange">{{evaluation.TemplateTitle}}
+				<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p></li>
 			</ul>
 		</div>
+		<div class="col-md-1"></div>
 		<div class="col-md-4">
 			<h3> Create new Template </h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6"> 
-			<h3>Closed Evaluations</h3>
-			<ul ng-repeat="evaluation in closedEvaluations">
-				<a data-ng-click="openEvaluationResult(evaluation.ID)"><li>{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li></a>
-			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6"> 
-			<h3>Pending Evaluations</h3>
-			<ul ng-repeat="evaluation in pendingEvaluations">
-				<li style="color:orange">{{evaluation.TemplateTitle}} {{evaluation.StartDate}} {{evaluation.EndDate}}</li>
-			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6"> 
-			<h3>Templates - just for testing</h3>
-			<ul ng-repeat="template in templates">
-			    <li>{{template.Title}}</li>
-			</ul>
+			<img src="images/templateimg.png" alt="" height="200" data-ng-click="openCreateTemplate()">
+			<h3> Create new Evaluation </h3>
+			<img src="images/evaluationimg.png" alt="" height="200" data-ng-click="openCreateEvaluation()">
 		</div>
 	</div>
 </div>

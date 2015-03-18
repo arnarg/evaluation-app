@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>New evaluation</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Select a template
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li ng-repeat="t in templates" role="presentation">
+                        <a role="menuitem" tabindex="-1" ng-click="getTemplate(t.ID)">{{t.Title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div style="display:inline-block;">
+                <label for="sd">Start date</label>
+                <datepicker ng-model="StartDate" show-weeks="true" class="well well-sm" id="sd"></datepicker>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="display:inline-block;">
+                <label for="ed">End date</label>
+                <datepicker ng-model="EndDate" show-weeks="true" class="well well-sm" id="ed"></datepicker>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="template">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>{{template.Title}}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Course questions</h4>
+                <evaluation-question ng-repeat="q in template.CourseQuestions" ng-model="q"></evaluation-question>
+            </div>
+            <div class="col-md-6">
+                <h4>Teacher questions</h4>
+                <evaluation-question ng-repeat="q in template.TeacherQuestions" ng-model="q"></evaluation-question>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary pull-right" ng-click="saveEvaluation()">Save</button>
+        </div>
+    </div>
+</div>

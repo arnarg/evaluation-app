@@ -49,14 +49,26 @@ module.exports = function (grunt) {
 					'public/js/app.js': ['src/dest/app.js']
 				}
 			}
+		},
+		less: {
+			development: {
+                files: {"public/css/main.css": "src/less/main.less"}
+            },
+            production: {
+                options: {
+                    cleancss: true
+                },
+                files: {"public/css/main.css": "src/less/main.less"}
+            }
 		}
 	};
 
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less']);
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-karma');
 	grunt.initConfig(taskConfig);
 };

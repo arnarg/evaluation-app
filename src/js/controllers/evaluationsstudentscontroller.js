@@ -11,8 +11,8 @@ function ($scope, $rootScope, $state, MyResource, userData){
 	});
 
 	MyResource.getEvaluations(userData.token).then(function(data){
-		//console.log("Evaluations for this user:");
-		//console.log(data);
+		console.log("Evaluations for this user:");
+		console.log(data);
 		$scope.evaluations = data.data;
 	});
 

@@ -5,7 +5,11 @@ angular.module("evalApp", [
     'toastr'
 ]);
 
-angular.module("evalApp").value("userData", { token: undefined, username: undefined, role: undefined});
+angular.module("evalApp").value("userData", {
+    token: undefined,
+    username: undefined,
+    role: undefined
+});
 
 angular.module("evalApp")
 	.config(["$stateProvider", "$urlRouterProvider",
@@ -33,6 +37,11 @@ angular.module("evalApp")
 					templateUrl: "views/template.html",
 					controller: "TemplateController"
 				})
+                .state("evaluation", {
+                    url: "/evaluation",
+                    templateUrl: "views/createEvaluation.html",
+                    controller: "CreateEvaluationController"
+                })
 				.state("evaluationStudent", {
 					url: "/evaluation/:course/:semester/:id",
 					templateUrl: "views/evaluation.student.html",

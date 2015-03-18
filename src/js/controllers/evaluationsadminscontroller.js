@@ -1,5 +1,5 @@
 angular.module("evalApp").controller("evaluationsAdminController",
-["$scope", "$rootScope", "$state", "TemplatesResource", "EvaluationsResource", "userData", 
+["$scope", "$rootScope", "$state", "TemplatesResource", "EvaluationsResource", "userData",
 function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, userData){
 	$scope.errorMessage = "";
 	$scope.evaluations = [];
@@ -13,7 +13,7 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 		$scope.templates = data.data;
 	});
 	EvaluationsResource.getEvaluations(userData.token).then(function(data){
-		//console.log("Evaluations for this user:");
+		//console.log("Admin Evaluations:");
 		//console.log(data);
 		$scope.evaluations = data.data;
 		filterEvaluations();
@@ -35,5 +35,13 @@ function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, us
 
 	$scope.openEvaluationResult = function (id){
 		$state.go("evaluationAdmin", { id: id });
+	};
+
+	$scope.openCreateEvaluation = function (){
+		$state.go("evaluation");
+	};
+
+	$scope.openCreateTemplate = function (){
+		$state.go("template");
 	};
 }]);

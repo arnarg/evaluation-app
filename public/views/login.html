@@ -1,18 +1,17 @@
-<div class="container">
-	<div class="col-md-4">
-		<div class="panel panel-default">
-			<div class="panel-heading">Log in with your username and password</div>
-			<div class="panel-body">
-				<div class="alert alert-danger" ng-cloak ng-show="errorMessage !== ''">
-					{{errorMessage}}
-				</div>
-				<div class="form-group">
-					<label for="nickname" class="control-label">Nick name</label>
-					<input type = "text" class="form-control" id="nickname" name="nickname" data-ng-model="nickname" data-ng-keyup="$event.keyCode == 13 && login()"/>
-					<input type = "password" class="form-control" id="password" name="password" data-ng-model="password" data-ng-keyup="$event.keyCode == 13 && login()"/>
-					<button type="button" class="btn btn-primary" data-ng-click="login()">Log in</button>
-				</div>
-			</div>
-		<div>
-	</div>
+<div class="form-signin">
+	<h2 class="form-signin-heading">Please sign in</h2>
+
+	<!-- Username input -->
+    <label for="nickname" class="sr-only">Username</label>
+    <input type="text" id="nickname" class="form-control"
+		placeholder="Username" required autofocus data-ng-model="nickname"
+		data-ng-keyup="$event.keyCode == 13 && login()">
+
+	<!-- Password input -->
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control"
+		placeholder="Password" required data-ng-model="password"
+		data-ng-keyup="$event.keyCode == 13 && login()">
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" data-ng-click="login()">Sign in</button>
 </div>
