@@ -2,9 +2,11 @@ describe("TemplateController tests", function() {
 	var controller, scope;
 
 	beforeEach(module("evalApp"));
-	beforeEach(inject(function($controller, $rootScope, $state, _TemplatesResource_) {
+	beforeEach(inject(function($controller, $rootScope, $state, $modal, _TemplatesResource_) {
 		rootScope = $rootScope;
 		scope = $rootScope.$new();
+
+		var fakeModal = {};
 
 		spyOn(_TemplatesResource_, "saveTemplate").and.callFake(function() {
 			deferred = $q.defer();
@@ -12,6 +14,22 @@ describe("TemplateController tests", function() {
 		});
 
 		spyOn($state, "go");
+
+		spyOn($modal, "open").and.returnValue(mockModal);
+
+		var mockModal = {
+			result: {
+				then: function(confirmCallback) {
+					this.confirmCallback = confirmCallback;
+				},
+				close: function(item) {
+					//
+				},
+				dismiss: function(type) {
+					//
+				}
+			}
+		}
 
 		controller = $controller("TemplateController", {
 			$scope: scope,
@@ -25,4 +43,10 @@ describe("TemplateController tests", function() {
 			expect(scope.template.ID).toEqual(1);
 		});
 	});
+
+	/*describe("add questions", function() {
+		it("should open modal window and redirect to right view", function() {
+			//
+		});
+	});*/
 });
