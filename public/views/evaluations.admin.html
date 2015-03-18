@@ -1,23 +1,36 @@
 <div class="container">
 	<h2>Admin Evaluations</h2>
 	<div class="row">
-		<div class="col-md-6"> 
+		<div class="col-md-6">
 			<h3>Open Evaluations</h3>
-			<ul class="list-group" ng-repeat="evaluation in openEvaluations">
-				<li class="list-group-item" style="color:green">{{evaluation.TemplateTitle}} 
-					<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p>
-				</li>
-			</ul>
+			<div class="list-group list-group-open">
+				<a ng-repeat="evaluation in openEvaluations" data-ng-click="openEvaluationResult(evaluation.ID)" class="list-group-item">
+					<h4>{{evaluation.TemplateTitle}}</h4>
+					<p>
+						Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}
+					</p>
+				</a>
+			</div>
+
 			<h3>Closed Evaluations</h3>
-			<ul class="list-group" ng-repeat="evaluation in closedEvaluations">
-				<a data-ng-click="openEvaluationResult(evaluation.ID)"><li class="list-group-item" >{{evaluation.TemplateTitle}}
-				<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p></li></a>
-			</ul>
+			<div class="list-group list-group-closed">
+				<a ng-repeat="evaluation in closedEvaluations" data-ng-click="openEvaluationResult(evaluation.ID)" class="list-group-item">
+					<h4>{{evaluation.TemplateTitle}}</h4>
+					<p>
+						Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}
+					</p>
+				</a>
+			</div>
+
 			<h3>Pending Evaluations</h3>
-			<ul class="list-group" ng-repeat="evaluation in pendingEvaluations">
-				<li class="list-group-item"  style="color:orange">{{evaluation.TemplateTitle}}
-				<p style="font-size:12px"> Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}</p></li>
-			</ul>
+			<div class="list-group list-group-pending">
+				<a ng-repeat="evaluation in pendingEvaluations" data-ng-click="openEvaluationResult(evaluation.ID)" class="list-group-item">
+					<h4>{{evaluation.TemplateTitle}}</h4>
+					<p>
+						Open from {{evaluation.StartDate | date:'fullDate'}} to {{evaluation.EndDate | date:'fullDate'}}
+					</p>
+				</a>
+			</div>
 		</div>
 		<div class="col-md-1"></div>
 		<div class="col-md-4">

@@ -2,3 +2,24 @@
     margin: auto;
     max-width: 350px;
 }
+
+.list-group-item-enhanced(@color) {
+    background-color: @color;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken(@color, 3%);
+    }
+}
+
+.list-group {
+    &.list-group-closed .list-group-item {
+        .list-group-item-enhanced(#e9f0f2);
+    }
+    &.list-group-open .list-group-item {
+        .list-group-item-enhanced(#E9FAE8);
+    }
+    &.list-group-pending .list-group-item {
+        .list-group-item-enhanced(#F7F1DF);
+    }
+}
