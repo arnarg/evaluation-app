@@ -7,10 +7,14 @@ function ($scope, $state, $stateParams, CoursesResource, userData){
 	$scope.evalTitle = "";
 	$scope.course = $stateParams.course;
 
-	CoursesResource.getTeachers(userData.token, $stateParams.course, $stateParams.semester)
-	.then(function(data){
-		$scope.teachers = data.data;
-	});
+	$scope.getTeacher = function() {
+		CoursesResource.getTeachers(userData.token, $stateParams.course, $stateParams.semester)
+		.then(function(data){
+			$scope.teachers = data.data;
+		});
+	};
+
+	$scope.getTeacher();
 
 	CoursesResource.getEvaluation(userData.token, $stateParams.course, $stateParams.semester, $stateParams.id)
 	.then(function(data){
@@ -46,7 +50,7 @@ function ($scope, $state, $stateParams, CoursesResource, userData){
 				});
 			}
 		}
-		
+
 		CoursesResource.saveEvaluation(userData.token, $stateParams.course, $stateParams.semester, $stateParams.id, QuestionAnswers)
 		.then(function(data){
 			$state.go("evaluationsStudent");
