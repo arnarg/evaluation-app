@@ -1,3 +1,4 @@
+<form name="templateCreator" novalidate>
 <div class="container center-container">
     <div class="row">
         <div class="col-md-12">
@@ -8,12 +9,18 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="templateName">Template name</label>
-                <input type="text" class="form-control" ng-model="template.Title" id="templateName">
+                <input type="text" class="form-control" ng-model="template.Title" id="templateName" name="templateName" required>
+                <span class="label label-danger" ng-show="templateCreator.templateName.$dirty && templateCreator.templateName.$invalid">
+                <span ng-show="templateCreator.templateName.$error.required">Name is required</span>
             </div>
             <div class="form-group">
                 <label for="templateIntro">Description</label>
-                <textarea class="form-control" rows="4" ng-model="template.IntroText"></textarea>
+                <textarea class="form-control" rows="4" ng-model="template.IntroText" name="templateIntro" required></textarea>
+                 <span class="label label-danger" ng-show="templateCreator.templateIntro.$dirty && templateCreator.templateIntro.$invalid">
+                <span ng-show="templateCreator.templateIntro.$error.required">Description is required</span>
+                </span>   
             </div>
+            
         </div>
     </div>
     <div class="row">
@@ -30,7 +37,8 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-primary pull-right" ng-click="saveTemplate()">Save</button>
+            <button class="btn btn-primary pull-right" ng-click="saveTemplate()" ng-disabled="templateCreator.templateName.$invalid || templateCreator.templateIntro.$invalid">Save</button>
         </div>
     </div>
 </div>
+</form>
