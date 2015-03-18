@@ -21,7 +21,7 @@ describe("EvaluationsStudentController tests", function() {
 			$scope: scope
 		});
 	}));
-	/*it("should get right course", inject(function(userData) {
+	it("should get right course", inject(function(userData) {
 		scope.getCourses();
 
 		deferred.resolve({
@@ -30,7 +30,7 @@ describe("EvaluationsStudentController tests", function() {
 			}
 		});
 	}));
-	it("should direct to the right state when opening evaluations", inject(function($state) {
+	/*it("should direct to the right state when opening evaluations", inject(function($state) {
 		scope.openEvaluation("T-427-WEPO", "20151", "1");
 		expect($state.go).toHaveBeenCalledWith("evaluationStudent", "T-427-WEPO", "20151", "1");
 	});*/
