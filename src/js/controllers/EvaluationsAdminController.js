@@ -1,15 +1,12 @@
 angular.module("evalApp").controller("EvaluationsAdminController",
-["$scope", "$rootScope", "$state", "TemplatesResource", "EvaluationsResource", "userData",
-function ($scope, $rootScope, $state, TemplatesResource, EvaluationsResource, userData){
+["$scope", "$state", "EvaluationsResource", "userData",
+function ($scope, $state, EvaluationsResource, userData){
 	$scope.errorMessage = "";
 	$scope.evaluations = [];
 	$scope.openEvaluations = [];
 	$scope.closedEvaluations = [];
 	$scope.pendingEvaluations = [];
-	$scope.templates = [];
-	TemplatesResource.getTemplates(userData.token).then(function(data){
-		$scope.templates = data.data;
-	});
+
 	EvaluationsResource.getEvaluations(userData.token).then(function(data){
 		$scope.evaluations = data.data;
 		filterEvaluations();

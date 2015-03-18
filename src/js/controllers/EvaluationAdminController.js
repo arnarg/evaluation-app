@@ -1,6 +1,6 @@
 angular.module("evalApp").controller("EvaluationAdminController",
-["$scope", "$rootScope", "$state", "$stateParams",  "EvaluationsResource", "userData", "toastr",  
-function ($scope, $rootScope, $state, $stateParams, EvaluationsResource, userData, toastr){
+["$scope", "$stateParams",  "EvaluationsResource", "userData", "toastr",  
+function ($scope, $stateParams, EvaluationsResource, userData, toastr){
 	$scope.title = "";
 	$scope.titleEN = "";
 	$scope.courses = [];

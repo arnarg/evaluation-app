@@ -2,11 +2,11 @@
     <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Add question</h4>
 </div>
-<form name="questionForm">
+<form name="questionForm" novalidate>
     <div class="modal-body">
         <div class="form-group">
             <label for="questionText">Question</label>
-            <input type="text" name="questionText" class="form-control" ng-model="question.Text" id="questionText">
+            <input type="text" name="questionText" class="form-control" ng-model="question.Text" id="questionText" required/>
             <span class="label label-danger" ng-show="questionForm.questionText.$dirty && questionForm.questionText.$invalid">
                 <span ng-show="questionForm.questionText.$error.required">Question is required</span>
             </span>

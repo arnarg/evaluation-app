@@ -8,7 +8,6 @@ function ($scope, $rootScope, $state, MyResource, userData){
 			$scope.courses = data.data;
 		});
 	};
-
 	$scope.getEvaluations = function() {
 		MyResource.getEvaluations(userData.token).then(function(data){
 			$scope.evaluations = data.data;
