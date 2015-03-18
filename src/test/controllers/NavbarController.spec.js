@@ -16,7 +16,7 @@ describe("NavbarController tests", function() {
 		it("should have loggedin as false before login", function() {
 			expect(scope.loggedin).toEqual(false);
 		});
-		it("should have right userData after login as student", inject(function($rootScope, userData) {
+		it("should have right userData after logging in as student", inject(function($rootScope, userData) {
 			userData.token = "0123456789";
 			userData.username = "dabs";
 			userData.role = "student";

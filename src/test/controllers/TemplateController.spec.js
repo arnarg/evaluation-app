@@ -2,7 +2,7 @@ describe("TemplateController tests", function() {
 	var controller, scope;
 
 	beforeEach(module("evalApp"));
-	beforeEach(inject(function($controller, $rootScope, $state, $modal, _TemplatesResource_) {
+	beforeEach(inject(function($controller, $rootScope, $q, $state, $modal, _TemplatesResource_) {
 		rootScope = $rootScope;
 		scope = $rootScope.$new();
 
@@ -31,10 +31,8 @@ describe("TemplateController tests", function() {
 		});
 	}));
 
-	describe("template questions", function() {
-		it("should have first question with ID 1", function() {
-			expect(scope.template.ID).toEqual(1);
-		});
+	it("should have first template question with ID 1", function() {
+		expect(scope.template.ID).toEqual(1);
 	});
 
 	describe("add questions", function() {
@@ -42,4 +40,19 @@ describe("TemplateController tests", function() {
 			//
 		});
 	});
+
+	/*it("should save template and redirect to right state", inject(function($state, userData) {
+		userData.token = "0123456789";
+		scope.template = {
+			ID: "1",
+			Title: "Template",
+			TitleEn: "Template",
+			IntroText: "IntroText",
+			IntroTextEN: "IntroTextEN",
+			CourseQuestions: [],
+			TeacherQuestions: []
+		};
+		scope.saveTemplate();
+		expect($state.go).toHaveBeenCalledWith("evaluationsAdmin");
+	}));*/
 });
