@@ -2,35 +2,40 @@
     <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title">Add question</h4>
 </div>
-<div class="modal-body">
-            <div class="form-group">
-                <label for="questionText">Question</label>
-                <input type="text" class="form-control" ng-model="question.Text" id="questionText">
+<form name="questionForm">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="questionText">Question</label>
+            <input type="text" name="questionText" class="form-control" ng-model="question.Text" id="questionText">
+            <span class="label label-danger" ng-show="questionForm.questionText.$dirty && questionForm.questionText.$invalid">
+                <span ng-show="questionForm.questionText.$error.required">Question is required</span>
+            </span>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                {{selectedType[question.Type]}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('text')">{{selectedType['text']}}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('single')">{{selectedType['single']}}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('multiple')">{{selectedType['multiple']}}</a></li>
+            </ul>
+        </div>
+        <div ng-show="question.Type === 'single' || question.Type === 'multiple'">
+            <div ng-repeat="a in question.Answers">
+                {{a.Text}}
             </div>
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                    {{selectedType[question.Type]}}
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('text')">{{selectedType['text']}}</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('single')">{{selectedType['single']}}</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setType('multiple')">{{selectedType['multiple']}}</a></li>
-                </ul>
+            <div class="input-group">
+                <input ng-model="newAnswer" type="text" class="form-control" placeholder="Answer">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="addAnswer()">Add</button>
+                </span>
             </div>
-            <div ng-show="question.Type === 'single' || question.Type === 'multiple'">
-                <div ng-repeat="a in question.Answers">
-                    {{a.Text}}
-                </div>
-                <div class="input-group">
-                    <input ng-model="newAnswer" type="text" class="form-control" placeholder="Answer">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="addAnswer()">Add</button>
-                    </span>
-                </div>
-            </div>
-</div>
-<div class="modal-footer">
-    <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
-    <button type="button" ng-click="ok()" class="btn btn-primary">Submit</button>
-</div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
+        <button type="button" ng-click="ok()" class="btn btn-primary">Submit</button>
+    </div>
+</form>

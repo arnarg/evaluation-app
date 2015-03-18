@@ -7,7 +7,7 @@ describe("testing evaluation-question directive", function() {
 		inject(function($compile, $rootScope) {
 			scope = $rootScope.$new();
 			scope.question = _question_;
-			element = "<evaluation-question ng-model='question'></evaluation-question>"
+			element = "<evaluation-question ng-model='question'></evaluation-question>";
 			element = $compile(element)(scope);
 			scope.$digest();
 		});
