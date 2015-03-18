@@ -8,3 +8,5 @@ evaluation-app
 3. Run default grunt task to deploy project to public directory.
 
 4. Run a http server in public/ directory.
+
+5. If you want to see code coverage report, run "grunt karma" and the report will appear in report/.
