@@ -8,24 +8,26 @@ function($scope, $state, userData) {
 			$scope.navigation = [
 				{
 					Title: "Home",
-					State: "evaluationsAdmin",
-					Active: true
+					State: "evaluationsAdmin"
 				},
 				{
 					Title: "Create template",
-					State: "template",
-					Active: false
+					State: "template"
 				},
 				{
 					Title: "Create evaluation",
-					State: "evaluation",
-					Active: false
+					State: "evaluation"
 				}
 			];
 		}
 		// else userData.role === student
 		else {
-			$scope.navigation = undefined;
+			$scope.navigation = [
+				{
+					Title: "Home",
+					State: "evaluationsStudent"
+				}
+			];
 		}
 
 		$scope.username = userData.username;
