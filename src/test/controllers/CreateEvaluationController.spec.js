@@ -1,5 +1,5 @@
 describe("CreateEvaluationController", function() {
-	var controller, scope, deferred;
+	var controller, rootScope, scope, deferred;
 
 	beforeEach(module("evalApp"));
 	beforeEach(inject(function($controller, $rootScope, toastr, $q, $state, _TemplatesResource_, _EvaluationsResource_) {

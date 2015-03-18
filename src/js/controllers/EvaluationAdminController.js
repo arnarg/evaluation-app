@@ -6,19 +6,22 @@ function ($scope, $stateParams, EvaluationsResource, userData, toastr){
 	$scope.courses = [];
 	$scope.selectedOption = { };
 
-	EvaluationsResource.getEvaluation(userData.token, $stateParams.id).then(function(data){
-		console.log(data);
-		$scope.title = data.data.TemplateTitle;
-		$scope.titleEN = data.data.TemplateTitleEN;
-		$scope.courses = data.data.Courses;
-		if($scope.courses.length === 0){
-			toastr.error("No students answered this evaluation");
-		}
-		else {
-			$scope.selectedOption = $scope.courses[0];
-			fillScopeData();
-		}
-	});
+	$scope.getEvaluation = function() {
+		EvaluationsResource.getEvaluation(userData.token, $stateParams.id).then(function(data){
+			$scope.title = data.data.TemplateTitle;
+			$scope.titleEN = data.data.TemplateTitleEN;
+			$scope.courses = data.data.Courses;
+			if($scope.courses.length === 0){
+				toastr.error("No students answered this evaluation");
+			}
+			else {
+				$scope.selectedOption = $scope.courses[0];
+				fillScopeData();
+			}
+		});
+	};
+
+	$scope.getEvaluation();
 
 	$scope.getCourseResults = function(id){
 		console.log(id);
