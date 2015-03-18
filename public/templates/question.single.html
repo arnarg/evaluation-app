@@ -1,6 +1,6 @@
 <div>
     <h4>{{question.Text}}</h4>
     <div ng-repeat="answer in question.Answers">
-        <input type="radio" name="answer.Text" value="answer.Text" id="{{answer.ID}}" ng-value="answer.ID" ng-model="question.Answer"> {{answer.Text}}
+        <input type="radio" name="{{question.SSN}}answer.Text" value="answer.Text" id="{{answer.ID}}" ng-value="answer.ID" ng-model="question.Answer"> {{answer.Text}}
     </div>
 </div>
